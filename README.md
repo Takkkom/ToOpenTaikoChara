@@ -4,7 +4,7 @@
 
 バイナリの入手方法
 
-自前でビルドしてください
+https://ux.getuploader.com/Takkkom_UpLoader_1/download/4
 
 
 二次配布について
