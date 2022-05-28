@@ -1,0 +1,2 @@
+# ToOpenTaikoChara
+太鼓さん次郎やTJAPlayer(PSP)のキャラクター(どんちゃん)をOpenTaikoのキャラクターに変換するためのツール
