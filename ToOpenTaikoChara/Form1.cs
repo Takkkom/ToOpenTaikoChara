@@ -51,7 +51,7 @@ namespace ToOpenTaikoChara
 
             for (int i = 0; i < Cache.Count; i++)
             {
-                Cache[i].Dispose();
+                Cache[i]?.Dispose();
             }
 
             if (Chara != null)
