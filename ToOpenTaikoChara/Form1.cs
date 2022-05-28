@@ -166,6 +166,10 @@ namespace ToOpenTaikoChara
             Chara?.Dispose();
             Chara = new TaikoJiroChara(TaikoJiro_PlayerCharPath, TaikoJiro_PlayerCharBalloonPath);
 
+            for (CharaPreview.PreviewType i = 0; i < CharaPreview.PreviewType.Result; i++)
+            {
+                CharaPreview.Previews[i].ResetValue();
+            }
             ChangePreview(CurPreview);
         }
 
@@ -176,6 +180,10 @@ namespace ToOpenTaikoChara
             Chara?.Dispose();
             Chara = new TJAPChara(TJAP_PlayerCharNormalPath, TJAP_PlayerCharMaxPath, TJAP_PlayerCharBadPath, TJAP_PlayerCharBalloonPath);
 
+            for (CharaPreview.PreviewType i = 0; i < CharaPreview.PreviewType.Result; i++)
+            {
+                CharaPreview.Previews[i].ResetValue();
+            }
             ChangePreview(CurPreview);
         }
 

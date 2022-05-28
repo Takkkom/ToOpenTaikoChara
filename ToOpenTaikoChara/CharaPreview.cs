@@ -21,6 +21,8 @@ namespace ToOpenTaikoChara
 
         public static Dictionary<PreviewType, CharaPreview> Previews = new Dictionary<PreviewType, CharaPreview>();
 
+        private PreviewType _PreviewType;
+
         public const double BaseScale = 0.5;
         public double CharaScale = 1.0;
 
@@ -30,12 +32,9 @@ namespace ToOpenTaikoChara
 
         public bool Is2PFlipX;
 
-        public CharaPreview(PreviewType name)
+        public void ResetValue()
         {
-            SceneImage = new Bitmap($@"Assets\Scenes\{name}.png");
-            SceneImage = new Bitmap(SceneImage, new Size((int)(SceneImage.Width * BaseScale), (int)(SceneImage.Height * BaseScale)));
-
-            switch (name)
+            switch (_PreviewType)
             {
                 case PreviewType.TaikoSelect:
                     CharaScale = 1.3;
@@ -83,6 +82,16 @@ namespace ToOpenTaikoChara
                     Is2PFlipX = true;
                     break;
             }
+        }
+
+        public CharaPreview(PreviewType name)
+        {
+            _PreviewType = name;
+
+            SceneImage = new Bitmap($@"Assets\Scenes\{name}.png");
+            SceneImage = new Bitmap(SceneImage, new Size((int)(SceneImage.Width * BaseScale), (int)(SceneImage.Height * BaseScale)));
+
+            ResetValue();
         }
         public void Dispose()
         {
