@@ -340,7 +340,6 @@ namespace ToOpenTaikoChara
 
         private void label6_Click(object sender, EventArgs e)
         {
-            CharaInfo.JumpFrame = (int)numericUpDown6.Value;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -385,6 +384,11 @@ namespace ToOpenTaikoChara
                 textBox6.Text = TJAP_PlayerCharBalloonPath;
                 LoadTJAPChara();
             }
+        }
+
+        private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+        {
+            CharaInfo.JumpFrame = (int)numericUpDown6.Value;
         }
     }
 }
