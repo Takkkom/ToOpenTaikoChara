@@ -43,8 +43,20 @@ namespace ToOpenTaikoChara
         public Bitmap[] Result_Failed;
         public Bitmap[] Result_Failed_In;
 
+        public int[] Title_Chara_Entry_X = new int[2];
+        public int[] Title_Chara_Entry_Y = new int[2];
+
+        public int[] Title_Chara_Normal_X = new int[2];
+        public int[] Title_Chara_Normal_Y = new int[2];
+
+        public int[] Menu_Chara_X = new int[2];
+        public int[] Menu_Chara_Y = new int[2];
+
         public int[] Game_Chara_X = new int[2];
         public int[] Game_Chara_Y = new int[2];
+
+        public int[] Result_Chara_X = new int[2];
+        public int[] Result_Chara_Y = new int[2];
 
         public int[] Game_Chara_Balloon_X = new int[2];
         public int[] Game_Chara_Balloon_Y = new int[2];
@@ -149,8 +161,19 @@ namespace ToOpenTaikoChara
 
             using (System.IO.StreamWriter stream = new System.IO.StreamWriter($@"{dirPath}\CharaConfig.txt"))
             {
+                stream.WriteLine($"Title_Chara_Entry_X={ToArrayText(Title_Chara_Entry_X)}");
+                stream.WriteLine($"Title_Chara_Entry_Y={ToArrayText(Title_Chara_Entry_Y)}");
+                stream.WriteLine($"Title_Chara_Normal_X={ToArrayText(Title_Chara_Normal_X)}");
+                stream.WriteLine($"Title_Chara_Normal_Y={ToArrayText(Title_Chara_Normal_Y)}");
+                stream.WriteLine($"Menu_Chara_X={ToArrayText(Menu_Chara_X)}");
+                stream.WriteLine($"Menu_Chara_Y={ToArrayText(Menu_Chara_Y)}");
+
                 stream.WriteLine($"Game_Chara_X={ToArrayText(Game_Chara_X)}");
                 stream.WriteLine($"Game_Chara_Y={ToArrayText(Game_Chara_Y)}");
+
+                stream.WriteLine($"Result_Chara_X={ToArrayText(Result_Chara_X)}");
+                stream.WriteLine($"Result_Chara_Y={ToArrayText(Result_Chara_Y)}");
+
                 stream.WriteLine($"Game_Chara_Balloon_X={ToArrayText(Game_Chara_Balloon_X)}");
                 stream.WriteLine($"Game_Chara_Balloon_Y={ToArrayText(Game_Chara_Balloon_Y)}");
                 stream.WriteLine($"Game_Chara_Motion_Normal={ToArrayText(Game_Chara_Motion_Normal)}");

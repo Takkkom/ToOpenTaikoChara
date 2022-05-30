@@ -45,6 +45,40 @@ namespace ToOpenTaikoChara
             }
         }
 
+        private void SetValue(CharaPreview.PreviewType previewType)
+        {
+            for (int player = 0; player < 2; player++)
+            {
+                switch (previewType)
+                {
+                    case CharaPreview.PreviewType.TaikoSelect:
+                        Chara.Title_Chara_Entry_X[player] = CharaPreview.Previews[CurPreview].X[player];
+                        Chara.Title_Chara_Entry_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
+                        break;
+                    case CharaPreview.PreviewType.ModeSelect:
+                        Chara.Title_Chara_Normal_X[player] = CharaPreview.Previews[CurPreview].X[player];
+                        Chara.Title_Chara_Normal_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
+                        break;
+                    case CharaPreview.PreviewType.SongSelect:
+                        Chara.Menu_Chara_X[player] = CharaPreview.Previews[CurPreview].X[player];
+                        Chara.Menu_Chara_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
+                        break;
+                    case CharaPreview.PreviewType.Game:
+                        Chara.Game_Chara_X[player] = CharaPreview.Previews[CurPreview].X[player];
+                        Chara.Game_Chara_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
+                        break;
+                    case CharaPreview.PreviewType.Game_Balloon:
+                        Chara.Game_Chara_Balloon_X[player] = CharaPreview.Previews[CurPreview].X[player];
+                        Chara.Game_Chara_Balloon_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
+                        break;
+                    case CharaPreview.PreviewType.Result:
+                        Chara.Result_Chara_X[player] = CharaPreview.Previews[CurPreview].X[player];
+                        Chara.Result_Chara_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
+                        break;
+                }
+            }
+        }
+
         private void UpdateCharaPos()
         {
             double scale = CharaPreview.BaseScale * CharaPreview.Previews[CurPreview].CharaScale;
@@ -133,28 +167,7 @@ namespace ToOpenTaikoChara
                     }
                 }
 
-                for (int player = 0; player < 2; player++)
-                {
-                    switch ((CharaPreview.PreviewType)CurPreview)
-                    {
-                        case CharaPreview.PreviewType.TaikoSelect:
-                            break;
-                        case CharaPreview.PreviewType.ModeSelect:
-                            break;
-                        case CharaPreview.PreviewType.SongSelect:
-                            break;
-                        case CharaPreview.PreviewType.Game:
-                            Chara.Game_Chara_X[player] = CharaPreview.Previews[CurPreview].X[player];
-                            Chara.Game_Chara_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
-                            break;
-                        case CharaPreview.PreviewType.Game_Balloon:
-                            Chara.Game_Chara_Balloon_X[player] = CharaPreview.Previews[CurPreview].X[player];
-                            Chara.Game_Chara_Balloon_Y[player] = CharaPreview.Previews[CurPreview].Y[player];
-                            break;
-                        case CharaPreview.PreviewType.Result:
-                            break;
-                    }
-                }
+                SetValue(CurPreview);
             }
 
         }
@@ -169,6 +182,8 @@ namespace ToOpenTaikoChara
             for (CharaPreview.PreviewType i = 0; i < CharaPreview.PreviewType.Result; i++)
             {
                 CharaPreview.Previews[i].ResetValue();
+
+                SetValue(i);
             }
             ChangePreview(CurPreview);
         }

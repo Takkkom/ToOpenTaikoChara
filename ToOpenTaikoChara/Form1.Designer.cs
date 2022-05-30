@@ -261,7 +261,7 @@ namespace ToOpenTaikoChara
             this.numericUpDown6.Size = new System.Drawing.Size(75, 19);
             this.numericUpDown6.TabIndex = 20;
             this.numericUpDown6.Value = new decimal(new int[] {
-            30,
+            20,
             0,
             0,
             0});
