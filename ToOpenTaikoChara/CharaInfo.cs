@@ -12,6 +12,7 @@ namespace ToOpenTaikoChara
         public static int JumpFrame = 20;
 
         public Bitmap[] Normal;
+        public Bitmap[] Miss;
         public Bitmap[] Clear;
         public Bitmap[] Clear_Max;
         public Bitmap[] GoGo;
@@ -23,6 +24,7 @@ namespace ToOpenTaikoChara
         public Bitmap[] Soulin;
         public Bitmap[] GoGoStart;
         public Bitmap[] GoGoStart_Max;
+        public Bitmap[] Return;
 
         public Bitmap[] Balloon_Breaking;
         public Bitmap[] Balloon_Broke;
@@ -62,9 +64,11 @@ namespace ToOpenTaikoChara
         public int[] Game_Chara_Balloon_Y = new int[2];
 
         protected List<int> Game_Chara_Motion_Normal = new List<int>();
+        protected List<int> Game_Chara_Motion_Miss = new List<int>();
         protected List<int> Game_Chara_Motion_Clear = new List<int>();
         protected List<int> Game_Chara_Motion_GoGo = new List<int>();
         protected int Game_Chara_Beat_Normal = 1;
+        protected int Game_Chara_Beat_Miss = 1;
         protected int Game_Chara_Beat_Clear = 1;
         protected int Game_Chara_Beat_GoGo = 2;
 
@@ -127,6 +131,7 @@ namespace ToOpenTaikoChara
             var gameScale = CharaPreview.Previews[CharaPreview.PreviewType.Game].CharaScale;
             var resultScale = CharaPreview.Previews[CharaPreview.PreviewType.Result].CharaScale;
             ExportArrayBitmap(Normal, $@"{dirPath}\Normal", gameScale);
+            ExportArrayBitmap(Miss, $@"{dirPath}\Miss", gameScale);
             ExportArrayBitmap(Clear, $@"{dirPath}\Clear", gameScale);
             ExportArrayBitmap(Clear_Max, $@"{dirPath}\Clear_Max", gameScale);
             ExportArrayBitmap(GoGo, $@"{dirPath}\GoGo", gameScale);
@@ -138,6 +143,7 @@ namespace ToOpenTaikoChara
             ExportArrayBitmap(Soulin, $@"{dirPath}\Soulin", gameScale);
             ExportArrayBitmap(GoGoStart, $@"{dirPath}\GoGoStart", gameScale);
             ExportArrayBitmap(GoGoStart_Max, $@"{dirPath}\GoGoStart_Max", gameScale);
+            ExportArrayBitmap(Return, $@"{dirPath}\Return", gameScale);
 
             ExportArrayBitmap(Balloon_Breaking, $@"{dirPath}\Balloon_Breaking", gameScale);
             ExportArrayBitmap(Balloon_Broke, $@"{dirPath}\Balloon_Broke", gameScale);
@@ -177,9 +183,11 @@ namespace ToOpenTaikoChara
                 stream.WriteLine($"Game_Chara_Balloon_X={ToArrayText(Game_Chara_Balloon_X)}");
                 stream.WriteLine($"Game_Chara_Balloon_Y={ToArrayText(Game_Chara_Balloon_Y)}");
                 stream.WriteLine($"Game_Chara_Motion_Normal={ToArrayText(Game_Chara_Motion_Normal)}");
+                stream.WriteLine($"Game_Chara_Motion_Miss={ToArrayText(Game_Chara_Motion_Miss)}");
                 stream.WriteLine($"Game_Chara_Motion_Clear={ToArrayText(Game_Chara_Motion_Clear)}");
                 stream.WriteLine($"Game_Chara_Motion_GoGo={ToArrayText(Game_Chara_Motion_GoGo)}");
                 stream.WriteLine($"Game_Chara_Beat_Normal={Game_Chara_Beat_Normal}");
+                stream.WriteLine($"Game_Chara_Beat_Miss={Game_Chara_Beat_Miss}");
                 stream.WriteLine($"Game_Chara_Beat_Clear={Game_Chara_Beat_Clear}");
                 stream.WriteLine($"Game_Chara_Beat_GoGo={Game_Chara_Beat_GoGo}");
             }
@@ -188,6 +196,7 @@ namespace ToOpenTaikoChara
         public void Dispose()
         {
             DispoeArrayBitmap(Normal);
+            DispoeArrayBitmap(Miss);
             DispoeArrayBitmap(Clear);
             DispoeArrayBitmap(Clear_Max);
             DispoeArrayBitmap(GoGo);
@@ -199,6 +208,7 @@ namespace ToOpenTaikoChara
             DispoeArrayBitmap(Soulin);
             DispoeArrayBitmap(GoGoStart);
             DispoeArrayBitmap(GoGoStart_Max);
+            DispoeArrayBitmap(Return);
 
             DispoeArrayBitmap(Balloon_Breaking);
             DispoeArrayBitmap(Balloon_Broke);

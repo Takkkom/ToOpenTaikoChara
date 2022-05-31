@@ -71,6 +71,7 @@ namespace ToOpenTaikoChara
             Title_Normal = new Bitmap[] { normals[0][0], normals[1][0] };
 
             Normal = new Bitmap[] { normals[0][0], normals[1][0] };
+            Miss = new Bitmap[] { normals[0][2], normals[1][2] };
             Clear = new Bitmap[] { normals[0][0], normals[1][0] };
             Clear_Max = new Bitmap[] { normals[0][3], normals[1][3] };
             GoGo = new Bitmap[] {
@@ -86,6 +87,7 @@ namespace ToOpenTaikoChara
 
             Combo10 = GenJumpArray(normals[2][0]);
             Combo10_Max = GenJumpArray(normals[2][3]);
+            Return = GenJumpArray(normals[2][0]);
 
             var balloons = SplitImage(charaBaloonPath, 3, 1);
             Balloon_Breaking = new Bitmap[] { balloons[0][0], balloons[1][0] };
@@ -106,6 +108,9 @@ namespace ToOpenTaikoChara
 
             Game_Chara_Motion_Normal.Add(0);
             Game_Chara_Motion_Normal.Add(1);
+
+            Game_Chara_Motion_Miss.Add(0);
+            Game_Chara_Motion_Miss.Add(1);
 
             Game_Chara_Motion_Clear.Add(0);
             Game_Chara_Motion_Clear.Add(1);
